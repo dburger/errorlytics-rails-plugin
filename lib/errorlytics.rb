@@ -80,7 +80,7 @@ module Errorlytics
     url = Errorlytics.account_url
     Net::HTTP.start(url.host, url.port) do |http|
       http.open_timeout = 3
-      http.read_timeout = 6
+      http.read_timeout = 3
       # 'Content-Type' => 'application/x-www-form-urlencoded' by default
       headers = {
         'Accept' => 'text/xml, application/xml'
