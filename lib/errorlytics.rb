@@ -14,6 +14,7 @@ module Errorlytics
         !base.instance_methods.include?('rescue_action_in_public_without_errorlytics')
       base.alias_method_chain(:rescue_action_in_public, :errorlytics)
     end
+    puts "** [Errorlytics] Plugin activated."
   end
 
   class << self
