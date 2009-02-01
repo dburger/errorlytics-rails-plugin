@@ -9,32 +9,25 @@ messing with your .htaccess file for search engine friendly redirects.
 Errorlytics handles it all, effortlessly. The end results are better user
 experiences and higher search engine rankings for your websites.
 
-== Usage
+== Installation
 
-Include the Errorlytics module in any controller you want to use the
-Errorlytics service.  Typically you will want to use Errorlytics with all of
-your controllers and thus should include the Errorlytics module in your
-ApplicationController as follows:
+If using Rails 2.1 or later the Rails Errorlytics plugin can be installed by
+issuing the command:
 
-    class ApplicationController < ActionController::Base
-      include Errorlytics
-      ...
-    end
+script/plugin install git://github.com/dburger/errorlytics-rails-plugin.git
 
-The Errorlytics plugin works by defining a rescue_action_in_public method
-on the controllers that it will work with.  If you have defined your own
-rescue_action_in_public method for error handling then make sure to place
-the include AFTER your rescue_action_in_public method.
+If you are using an older version of rails you can clone this repository into
+your vendor/plugins directory and then remove the .git subdirectory:
 
-You also need to configure Errorlytics as explained in the configuration
-section below.
+git clone git://github.com/dburger/errorlytics-rails-plugin.git vendor/rails/errorlytics
+rm -rf vendor/rails/errorlytics/.git
 
 == Configuration
 
 To configure Errolytics you need to set the secret key, account id, and
 website id.  A good place to put this configuration would be in an
-initializer or in your environment.  The code should look similar to the
-following:
+initializer or in your environment.  For example you could have a
+config/initializers/errorlytics.rb file similar to the following:
 
 Errorlytics.secret_key = 'YOUR SECRET KEY';
 Errorlytics.account_id = 'YOUR ACCOUNT ID';
